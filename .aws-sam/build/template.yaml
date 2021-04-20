@@ -1,0 +1,51 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: Favoulinks API Lambda Function
+Globals:
+  Function:
+    Timeout: 5
+Resources:
+  FavoulinksDB:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: FavoulinksDB
+      PrimaryKey:
+        Name: url
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+  FavoulinksFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      CodeUri: FavoulinksFunction
+      Handler: main
+      Runtime: go1.x
+      Tracing: Active
+      Events:
+        CatchAll:
+          Type: Api
+          Properties:
+            Path: /favoulinks
+            Method: ANY
+      Policies:
+        DynamoDBCrudPolicy:
+          TableName:
+            Ref: FavoulinksDB
+Outputs:
+  FavoulinksApi:
+    Description: 'Favoulinks API Gateway endpoint URL for Prod stage '
+    Value:
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/favoulinks/
+  FavoulinksFunction:
+    Description: Favoulinks Lambda Function ARN
+    Value:
+      Fn::GetAtt:
+      - FavoulinksFunction
+      - Arn
+  FavoulinksDB:
+    Description: Favoulinks Dynamic Database ARN
+    Value:
+      Fn::GetAtt:
+      - FavoulinksDB
+      - Arn
