@@ -2,9 +2,9 @@ version = 0.1
 [default]
 [default.deploy]
 [default.deploy.parameters]
-stack_name = "favoulinks-app"
+stack_name = "favoulinks-api"
 s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-1stdluh7htcsr"
-s3_prefix = "favoulinks-app"
+s3_prefix = "favoulinks-api"
 region = "us-east-2"
 confirm_changeset = true
 capabilities = "CAPABILITY_IAM"

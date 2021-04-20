@@ -1,6 +1,6 @@
-# favoulinks-app
+# favoulinks-api
 
-This is a sample template for favoulinks-app - Below is a brief explanation of what we have generated for you:
+This is a sample template for favoulinks-api Below is a brief explanation of what we have generated for you:
 
 ```bash
 .
