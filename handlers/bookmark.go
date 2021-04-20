@@ -62,7 +62,7 @@ func MethodNotAllowed() (*events.APIGatewayProxyResponse, error) {
 func buildResponse(status int, body interface{}) (*events.APIGatewayProxyResponse, error) {
 	strBody, _ := json.Marshal(body)
 	return &events.APIGatewayProxyResponse{
-		Headers: map[string]string{"Content-Type": "application/json"},
+		Headers: map[string]string{"Content-Type": "application/json", "Access-Control-Allow-Origin": "*"},
 		StatusCode: status,
 		Body: string(strBody),
 	}, nil
