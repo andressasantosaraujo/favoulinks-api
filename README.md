@@ -27,10 +27,11 @@ Value               https://x8to3u904e.execute-api.us-east-2.amazonaws.com/Prod/
    * Use the URL on `Value` to access the endpoint
 # Endpoints
 * GET :
+
     * 
-     ```bash 
+    ```bash 
         curl --location --request GET 'https://uri-example.amazonaws.com/Prod/favoulinks/'
-    ```
+     ```
     * 
     ```bash 
         curl --location --request GET 'https://uri-example.amazonaws.com/Prod/favoulinks/?url=bbc.co.uk'
