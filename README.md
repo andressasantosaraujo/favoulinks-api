@@ -1,7 +1,7 @@
 # Favoulinks
 Favoulinks is an application where a user can store their favourites bookmarks for easy access in the future. Each bookmark should have a title, clickable URL and an optional category. Using Favoulinks users can create a new bookmark, read bookmarks created, update exists bookmarks and delete bookmarks stored.
 
-#Technologies
+# Technologies
 This is the Favoulinks server-side repository. The backend was build in AWS Lambda using Golang, Amazon DynamoDB, Amazon API Gateway and The AWS Serverless Application Model (SAM) to define the application and model it using YAML.
 
 # Installation
