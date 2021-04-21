@@ -18,6 +18,15 @@ Resources:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5
 
+  FavoulinksRestApi:
+    Type: AWS::Serverless::Api
+    Properties:
+      StageName: Prod
+      Cors:
+        AllowMethods: "'OPTIONS,POST,GET,PUT,DELETE'"
+        AllowHeaders: "'*'"
+        AllowOrigin: "'*'"
+
   FavoulinksFunction:
     Type: AWS::Serverless::Function
     Properties:
@@ -31,14 +40,15 @@ Resources:
           Properties:
             Path: /favoulinks
             Method: ANY
+            RestApiId: !Ref FavoulinksRestApi
       Policies:
         DynamoDBCrudPolicy:
           TableName: !Ref FavoulinksDB
 
 Outputs:
-  FavoulinksApi:
+  FavoulinksRestApi:
     Description: "Favoulinks API Gateway endpoint URL for Prod stage "
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/favoulinks/"
+    Value: !Sub "https://${FavoulinksRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/favoulinks/"
   FavoulinksFunction:
     Description: "Favoulinks Lambda Function ARN"
     Value: !GetAtt FavoulinksFunction.Arn
