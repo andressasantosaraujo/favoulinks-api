@@ -60,3 +60,23 @@ Value               https://x8to3u904e.execute-api.us-east-2.amazonaws.com/Prod/
 ```bash 
     curl --location --request DELETE 'https://uri-example.amazonaws.com/Prod/favoulinks/?url=bbc.co.uk'
 ```
+
+#Tests
+This project has some unit tests on the service layer to make sure the business rules were right implemented. To run these tests, please perform the following instructions on the service layer directory:
+```bash
+    AWS_REGION=us-east-2 go test -coverprofile=coverage.out && go tool cover -html=coverage.out
+```
+As you can see these instructions has an environment variable `AWS_REGION=us-east-2` linked to the AWS region, which is required. Then we have the go command `go test -coverprofile=coverage.out` to find and perform the tests and another command `go tool cover -html=coverage.out` to apply a coverage tool and see tests coverage.
+
+The first instruction will display the percentage of tests cover.
+```bash
+    PASS
+    coverage: 75.0% of statements
+    ok  	favoulinks-function/services	10.359s
+```
+
+The second instruction is going to open on the browser a report presenting the source code and its coverage.
+
+![favoulinks_test_example.png](favoulinks_test_example.png)
+
+
