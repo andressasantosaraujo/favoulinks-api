@@ -61,7 +61,7 @@ Value               https://x8to3u904e.execute-api.us-east-2.amazonaws.com/Prod/
     curl --location --request DELETE 'https://uri-example.amazonaws.com/Prod/favoulinks/?url=bbc.co.uk'
 ```
 
-#Tests
+# Tests
 This project has some unit tests on the service layer to make sure the business rules were right implemented. To run these tests, please perform the following instructions on the service layer directory:
 ```bash
     AWS_REGION=us-east-2 go test -coverprofile=coverage.out && go tool cover -html=coverage.out
