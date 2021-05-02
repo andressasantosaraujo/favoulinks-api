@@ -8,6 +8,7 @@ This is the Favoulinks server-side repository. The backend was build in AWS Lamb
    * [Create an AWS account](https://aws.amazon.com/)
    * [Configure AWS credentials](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-quickstart.html)
    * [Install the AWS SAM CLI](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-install.html)
+   * [Check the client-side repository](https://github.com/andressasantosaraujo/favoulinks-webapp)
 
 # Usage
 1. Build `template.yaml` to compile any dependencies that you have in the application and moves all the files into the `.aws-sam/build` folder :
